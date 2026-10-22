@@ -1,0 +1,40 @@
+size(1200, 800)
+background(0)
+
+# colours
+colors = [
+    color(247, 167, 191),  # pink
+    color(209, 160, 227),  # purple
+    color(159, 220, 250),  # blue
+    color(250, 241, 159),  # yellow
+    color(199, 250, 159),  # green
+    color(250, 166, 81),   # orange
+    color(81, 158, 250),   # darker blue
+    color(252, 120, 146),  # salmon pink
+    color(194, 252, 240),  # teal
+    color(166, 198, 138),  # olive
+    color(255, 255, 188)   # lighter yellow
+]
+
+# top left: vertical stripes
+noStroke()
+for i in range(11):
+    fill(colors[i])
+    rect(25 + i * 50, 50, 50, 300)
+
+# top right: horizontal stripes
+for i in range(6):
+    fill(colors[i])
+    rect(625, 50 + i * 50, 550, 50)
+
+# bottom left: diagonal stripes
+for x in range(550):
+    for y in range(300):
+        stroke(colors[((x + y) // 70) % 6])
+        point(25 + x, 450 + y)
+
+# bottom right: diagonal stripes the other way 
+for x in range(550):
+    for y in range(300):
+        stroke(colors[((x - y) // 70) % 6])
+        point(625 + x, 450 + y)
